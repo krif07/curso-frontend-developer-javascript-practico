@@ -1,4 +1,5 @@
 const cardsContainer = document.querySelector('.cards-container');
+const productDetailContainer = document.querySelector('#productDetail');
 
 const productList = [];
 productList.push({
@@ -43,6 +44,13 @@ productList.push({
     image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
 });
 
+function openProductDetailAside(){
+    mobileMenu.classList.add('inactive');
+    desktopMenu.classList.add('inactive');
+    shoppingCartContainer.classList.add('inactive');
+    productDetailContainer.classList.remove('inactive');
+}
+
 createProductList(productList);
 
 function createProductList(arrProductList){
@@ -53,6 +61,7 @@ function createProductList(arrProductList){
         const productImg = document.createElement('img');
         //img.src = product.image;
         productImg.setAttribute('src', product.image);
+        productImg.addEventListener('click', openProductDetailAside);
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
